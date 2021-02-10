@@ -1,0 +1,25 @@
+import Repository from Xenin.Libs.Cache
+
+public class Xenin.Libs.Cache.Service()
+  repository = Repository
+
+  getNewestVersion(name)
+    sql.Begin()
+    local library = repository:getNewestVersion(name)
+    sql.Commit()
+
+    return library
+  end
+
+  getVersion(name)
+    sql.Begin()
+    local library = repository:getNewestVersion(name)
+    sql.Commit()
+
+    return library
+  end
+
+  setVersion(name)
+  
+  end
+end

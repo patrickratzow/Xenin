@@ -1,0 +1,32 @@
+{
+  "path": {
+    "input": "./laux",
+    "output": "./lua"
+  },
+  "merges": [
+    {
+      "filesGlob": [ "xenin/util/helpers/**/*.laux" ],
+      "output": "xenin/util/helpers"
+    },
+    {
+      "filesGlob": [ "xenin/addons/addons/**/*.laux" ],
+      "output": "xenin/addons/addons"
+    },
+    {
+      "filesGlob": [ "xenin/addons/libs/cache/**/*.laux" ],
+      "output": "xenin/addons/cache"
+    },
+    {
+      "filesGlob": [ "xenin/addons/libs/downloader/**/*.laux" ],
+      "output": "xenin/addons/downloader"
+    },
+    {
+      "filesGlob": [ "xenin/addons/libs/*.laux" ],
+      "output": "xenin/addons/library"
+    },
+    {
+      "filesGlob": [ "xenin/core/container/**/*.laux" ],
+      "output": "xenin/_core/container"
+    }
+  ]
+}

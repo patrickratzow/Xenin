@@ -1,0 +1,32 @@
+public class Xenin.Libs.Cache.DAO.FileDAO
+  getFiles(name, version)
+    return sql.Query(
+      string.format([[
+          SELECT 
+            directory,
+            file_name AS fileName,
+            file_contents AS fileContents
+          FROM xenin_core_libs_version_file
+          WHERE addon_name = '%s' AND version = '%s'
+        ]], 
+        sql.SQLStr(name), 
+        sql.SQLStr(version)
+      )
+    )
+  end
+
+  insertFile(addonName, version, directory, fileName, fileContents)
+    sql.Query(
+      string.format([[
+          INSERT INTO xenin_core_libs_version_file (addon_name, version, directory, file_name, file_contents)
+          VALUES ('%s', '%s', '%s', '%s', '%s')
+        ]], 
+        sql.SQLStr(addonName), 
+        sql.SQLStr(version), 
+        sql.SQLStr(directory), 
+        sql.SQLStr(fileName),
+        sql.SQLStr(fileContents)
+      )
+    )
+  end
+end

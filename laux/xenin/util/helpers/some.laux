@@ -1,0 +1,10 @@
+function Xenin:Some(input, func)
+  for i, v of tbl do
+    local output = func(v, i)
+    if (output) then
+      return true
+    end
+  end
+  
+  return false
+end

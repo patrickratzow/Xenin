@@ -1,0 +1,29 @@
+public class Xenin.Libs.Cache.DAO.VersionDAO
+  getNewestVersion(name)
+    return sql.QueryRow(
+      string.format([[
+          SELECT 
+            addon_name AS addonName,
+            version AS version
+          FROM xenin_core_libs_version
+          WHERE addon_name = '%s'
+          ORDER BY version DESC
+          LIMIT 1
+        ]], 
+        sql.SQLStr(name)
+      )
+    )
+  end
+
+  insertVersion(addonName, version)
+    sql.Query(
+      string.format([[
+          INSERT INTO xenin_core_libs_version (addon_name, version)
+          VALUES ('%s', '%s')
+        ]], 
+        sql.SQLStr(addonName), 
+        sql.SQLStr(version)
+      )
+    )
+  end
+end

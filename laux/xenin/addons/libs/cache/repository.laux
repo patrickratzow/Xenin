@@ -1,0 +1,22 @@
+import FileDAO, VersionDAO from Xenin.Libs.Cache.DAO
+import Library from Xenin.Libs
+
+public class Xenin.Libs.Cache.Repository
+  fileDAO = FileDAO()
+  versionDAO = VersionDAO()
+
+  getNewestVersion(name)
+    local version = self.versionDAO:getNewestVersion(name)
+    stopif !version
+    local files = self.fileDAO:getFiles(name, version)
+
+    return Library(version, files)
+  end
+
+  getVersion(name, version)
+    local files = self.fileDAO:getFiles(name, version)
+    stopif !files
+    
+    return Library(version, files)
+  end
+end

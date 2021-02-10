@@ -1,0 +1,15 @@
+public class Xenin.Addon
+  static build(addon)
+    return Xenin.AddonBuilder(addon)
+  end
+
+  _get addon
+  _get name
+  _get libs
+  
+  constructor(addon, name, libs)
+    self.addon = addon
+    self.name = name
+    self.libs = libs
+  end
+end

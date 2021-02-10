@@ -1,0 +1,12 @@
+function Xenin:Filter(input, func)
+  local tbl = {}
+  
+  for i, v of input do
+    local output = func(v, i)
+    if (output) then
+      tbl[#tbl + 1] = v
+    end
+  end
+
+  return tbl
+end

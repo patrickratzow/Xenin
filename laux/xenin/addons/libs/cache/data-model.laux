@@ -1,0 +1,40 @@
+class CacheDataModel() 
+  constructor()
+    self:createTables()
+  end
+
+  createTables()
+    sql.Begin()
+    self:createVersionTable()
+    self:createFileTable()
+    sql.Commit()
+  end
+
+  createVersionTable()
+    sql.Query([[ 
+      CREATE TABLE IF NOT EXISTS xenin_core_libs_version (
+        addon_name VARCHAR(255),
+        version VARCHAR(16),
+
+        PRIMARY KEY (addon_name, version)
+      );
+    ]])
+  end
+
+  createFileTable()
+    sql.Query([[
+      CREATE TABLE IF NOT EXISTS xenin_core_libs_version_file (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        addon_name VARCHAR(255) NOT NULL,
+        version VARCHAR(16) NOT NULL,
+        directory VARCHAR(511) NOT NULL,
+        file_name VARCHAR(255) NOT NULL,
+        file_contents TEXT NOT NULL,
+
+        FOREIGN KEY (addon_name, version)
+          REFERENCES xenin_core_libs_version(addon_name, version)
+          ON DELETE CASCADE
+      )
+    ]])
+  end
+end

@@ -1,0 +1,17 @@
+public class Xenin.AddonBuilder
+  _set name
+
+  constructor(tbl: table)
+    self.addon = tbl
+  end
+
+  setLibs(libs: table)
+    self.libs = libs
+
+    return self
+  end
+
+  build()
+    return Xenin.Addon(self.addon, self.name, self.libs)
+  end
+end

@@ -1,0 +1,19 @@
+public class Xenin.Container
+  data = {}
+
+  set(id, addon)
+    self.data[id] = data
+  end
+
+  delete(id)
+    self.data[id] = nil
+  end
+
+  get(id)
+    return self.data[id]
+  end
+
+  getAll()
+    return self.data
+  end
+end

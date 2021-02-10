@@ -1,0 +1,9 @@
+function Xenin:Map(input, func)
+  local tbl = {}
+  
+  for i, v of input do
+    tbl[#tbl + 1] = func(v, i)
+  end
+
+  return tbl
+end
